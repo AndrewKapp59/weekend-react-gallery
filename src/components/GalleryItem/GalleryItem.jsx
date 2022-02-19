@@ -1,35 +1,39 @@
-import './GalleryItem.css'
+import './GalleryItem.css';
+import { useState } from 'react';
 
-function ListItem({photo, likeClick}) {
-    
-    const handleImgClick = () => {
-      console.log('This img was clicked', photo.id);
-      imgClicked(photo);
-    };
+function ListItem({ photo, likeClick }) {
+  
+  const handleLikeClick = () => {
+    console.log('This img was liked', photo.id);
+    likeClick(photo);
+  };
 
-    const handleLikeClick = () => {
-      console.log('This img was liked', photo.id);
-      likeClick(photo);
-    };
+  
+  const [toggled, setToggled] = useState(true);
 
-    return (
-      <>
-        <div key = {photo.id} className="picBox">
+  // toggles the pic and description
+  const toggleImage = () => setToggled(!toggled);
+
+  return (
+    <>
+      <div key={photo.id} className="picBox">
+        {toggled ? (
           <div className="pic">
-            <img onClick={handleImgClick} src= {photo.path}/>
+          <img onClick={() => toggleImage()} src={photo.path} />
           </div>
-            {/* <div>
-              <p>{photo.description}</p>
-            </div> */}
-          <div>
-            <button onClick={handleLikeClick}>Like</button>
-            <p>Likes: {photo.likes}</p>
+        ) : (
+          <div className="text" onClick={() => toggleImage()}>
+            <p>{photo.description}</p>
           </div>
+        )}
+
+        <div>
+          <button onClick={handleLikeClick}>Like</button>
+          <p>Likes: {photo.likes}</p>
         </div>
-      </>
-    )
-
-
+      </div>
+    </>
+  );
 }
 
 export default ListItem;
