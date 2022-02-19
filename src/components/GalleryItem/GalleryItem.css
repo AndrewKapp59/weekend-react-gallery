@@ -1,0 +1,9 @@
+img {  
+  width: auto;  
+  height: 250px;
+  margin: 20px;  
+  }  
+
+  .picBox {
+    display: inline-block;
+  }
