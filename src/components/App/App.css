@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  /* background-image: url(242.jpg); */
+  background-color: rgb(120, 188, 219);
+  background-position: center;
+  background-size: cover;
 }
 
 .App-header {

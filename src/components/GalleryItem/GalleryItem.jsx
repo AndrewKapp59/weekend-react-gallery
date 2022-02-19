@@ -2,13 +2,11 @@ import './GalleryItem.css';
 import { useState } from 'react';
 
 function ListItem({ photo, likeClick }) {
-  
   const handleLikeClick = () => {
     console.log('This img was liked', photo.id);
     likeClick(photo);
   };
 
-  
   const [toggled, setToggled] = useState(true);
 
   // toggles the pic and description
@@ -19,12 +17,15 @@ function ListItem({ photo, likeClick }) {
       <div key={photo.id} className="picBox">
         {toggled ? (
           <div className="pic">
-          <img onClick={() => toggleImage()} src={photo.path} />
+            <img className="solo" onClick={() => toggleImage()} src={photo.path} />
           </div>
         ) : (
-          <div className="text" onClick={() => toggleImage()}>
-            <p>{photo.description}</p>
-          </div>
+          <>
+            <div className="text" onClick={() => toggleImage()}>
+              <p>{photo.description}</p>
+              {/* <img onClick={() => toggleImage()} src={photo.path}/> */}
+            </div>
+          </>
         )}
 
         <div>
