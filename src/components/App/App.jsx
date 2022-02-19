@@ -12,12 +12,10 @@ function App() {
 
   let [galleryList, setGalleryList] = useState([]);
 
-  console.log(galleryList);
-
   const fetchGallery = () => {
     axios.get('/gallery')
       .then( (response) => {
-        console.log('Just the data:', response.data);
+        console.log('Image Gallery', response.data);
 
         // Sets data into state var
         setGalleryList(response.data);
@@ -27,6 +25,17 @@ function App() {
       });
   }
 
+  const likeClick = (photo) => {
+
+    axios.put(`/gallery/like/${photo.id}`)
+      .then( (response) => {
+        console.log(response);
+        fetchGallery()
+      })
+      .catch(function (error) {
+        console.log('Error on get:', error);
+      });
+  }
 
     return (
       <div className="App">
@@ -36,6 +45,7 @@ function App() {
         <p>Gallery goes here</p>
         <GalleryList 
         galleryList = {galleryList}
+        likeClick = {likeClick}
         />
       </div>
     );
