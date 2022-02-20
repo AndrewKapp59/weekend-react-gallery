@@ -1,26 +1,55 @@
-img {  
+
+
+.solo {  
   width: auto;  
   height: 250px;
   margin: 20px; 
   box-shadow: 1px 1px 15px;
   border-radius: 5px;
-  }  
-
-  .picBox {
-    display: inline-block;
   }
 
-  .text {
-    width: 200px;
-    height: 200px;
-    margin: 20px; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    border-color: black;
+.together {  
+  width: auto;  
+  height: 250px;
+  box-shadow: 1px 1px 15px;
+  border-radius: 5px;
   }
 
-  button {
+.description {
+  color: white;
+}
+
+
+.picBox {
+  display: inline-block;
+}
+
+.text-pic {
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.like-button {
+  font-size: 20px;
+  width: 5em;
+  text-align: center;
+  position: relative;
+  border: 2px solid;
+  border-radius: 5px;
+  background-color: white;
+  color: #666;
+  cursor: pointer;
+}
+
+.like-button:hover {
+  color: rgb(39, 83, 21);
+}
+
+
     
-  }
+  

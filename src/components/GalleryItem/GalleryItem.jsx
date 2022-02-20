@@ -1,6 +1,7 @@
 import './GalleryItem.css';
 import { useState } from 'react';
 
+
 function ListItem({ photo, likeClick }) {
   const handleLikeClick = () => {
     console.log('This img was liked', photo.id);
@@ -21,18 +22,19 @@ function ListItem({ photo, likeClick }) {
           </div>
         ) : (
           <>
-            <div className="text" onClick={() => toggleImage()}>
-              <p>{photo.description}</p>
-              {/* <img onClick={() => toggleImage()} src={photo.path}/> */}
+            <div className="text-pic" onClick={() => toggleImage()}>
+              {/* <img className = 'together' onClick={() => toggleImage()} src={photo.path} alt="background"/> */}
+              <h4 className='description'>{photo.description}</h4>
             </div>
           </>
         )}
-
-        <div>
-          <button onClick={handleLikeClick}>Like</button>
-          <p>Likes: {photo.likes}</p>
+          <>
+            <div>
+              <button className = "like-button" onClick={handleLikeClick}>Like</button>
+              <p>Likes: {photo.likes}</p>
+            </div>
+          </>
         </div>
-      </div>
     </>
   );
 }
